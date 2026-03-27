@@ -10,7 +10,7 @@ User question: "${question}"
 Graph is about an MSc programme, modules, and staff.
 `;
 
-  const cypher = (await askClaude(cypherPrompt)).trim();
+  const cypher = (await askLLM(cypherPrompt)).trim();
   console.log("Cypher:", cypher);
 
   const data = await runCypher(cypher);
@@ -25,5 +25,5 @@ ${JSON.stringify(data, null, 2)}
 
 Answer clearly using ONLY this data.
 `;
-  return await askClaude(answerPrompt);
+  return await askLLM(answerPrompt);
 }
