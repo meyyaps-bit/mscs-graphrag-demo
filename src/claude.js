@@ -1,13 +1,18 @@
-import Anthropic from "@anthropic-ai/sdk";
-import "dotenv/config";
+import Groq from "groq-sdk";
 
-const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+const client = new Groq({
+  apiKey: process.env.GROQ_API_KEY
+});
 
-export async function askClaude(prompt) {
-  const res = await client.messages.create({
-    model: "claude-3-sonnet-20240229",
-    max_tokens: 400,
-    messages: [{ role: "user", content: prompt }]
+export async function askLLM(prompt) {
+  const response = await client.chat.completions.create({
+    model: "llama3-70b-8192",
+    messages: [
+      { role: "system", content: "You are a helpful assistant that generates Cypher queries for Neo4j." },
+      { role: "user", content: prompt }
+    ],
+    temperature: 0.2
   });
-  return res.content[0].text;
+
+  return response.choices[0].message.content;
 }
