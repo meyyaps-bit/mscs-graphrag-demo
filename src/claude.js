@@ -6,7 +6,7 @@ const client = new Groq({
 
 export async function askLLM(prompt) {
   const response = await client.chat.completions.create({
-    model: "llama3-70b-8192",
+    model: "llama3-8b-8192",
     messages: [
       { role: "system", content: "You are a helpful assistant that generates Cypher queries for Neo4j." },
       { role: "user", content: prompt }
