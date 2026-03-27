@@ -10,9 +10,15 @@ User question: "${question}"
 Graph is about an MSc programme, modules, and staff.
 `;
 
-  const cypher = (await askLLM(cypherPrompt)).trim();
-  console.log("Cypher:", cypher);
+  const raw = (await askLLM(cypherPrompt)).trim();
 
+  const cypher = raw
+    .replace(/```cypher/gi, "")
+    .replace(/```/g, "")
+    .trim();
+
+  console.log("Cypher:", cypher);
+  
   const data = await runCypher(cypher);
 
   const answerPrompt = `
