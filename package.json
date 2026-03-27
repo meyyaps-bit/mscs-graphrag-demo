@@ -1,10 +1,16 @@
 {
-  "name": "graphrag-demo",
+  "name": "graph-rag-chatbot",
+  "version": "1.0.0",
   "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
   "dependencies": {
-    "express": "^4.19.0",
-    "neo4j-driver": "^5.22.0",
-    "@anthropic-ai/sdk": "^0.27.0",
-    "dotenv": "^16.4.0"
+    "express": "^4.18.2",
+    "neo4j-driver": "^5.14.0",
+    "groq-sdk": "^0.5.0",
+    "dotenv": "^16.4.0",
+    "cors": "^2.8.5"
   }
 }
