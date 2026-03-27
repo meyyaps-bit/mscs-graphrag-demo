@@ -1,0 +1,10 @@
+{
+  "name": "graphrag-demo",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.19.0",
+    "neo4j-driver": "^5.22.0",
+    "@anthropic-ai/sdk": "^0.27.0",
+    "dotenv": "^16.4.0"
+  }
+}
