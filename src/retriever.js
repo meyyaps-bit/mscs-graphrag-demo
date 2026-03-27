@@ -1,5 +1,5 @@
 import { runCypher } from "./neo4j.js";
-import { askClaude } from "./claude.js";
+import { askLLM } from "./claude.js";
 
 export async function graphRAG(question) {
   const cypherPrompt = `
